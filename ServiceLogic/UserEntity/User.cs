@@ -1,8 +1,8 @@
-﻿using ServiceLogic.Validation;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using ServiceLogic.Validation;
 
-namespace ServiceLogic
+namespace ServiceLogic.UserEntity
 {
     public enum Gender { Male, Female }
 

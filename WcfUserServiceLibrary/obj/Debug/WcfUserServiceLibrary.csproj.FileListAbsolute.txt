@@ -1,0 +1,10 @@
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\bin\Debug\WcfUserServiceLibrary.dll.config
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\bin\Debug\WcfUserServiceLibrary.dll
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\bin\Debug\WcfUserServiceLibrary.pdb
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\bin\Debug\ServiceLogic.dll
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\bin\Debug\UserServiceNodesReplication.dll
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\bin\Debug\ServiceLogic.pdb
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\bin\Debug\UserServiceNodesReplication.pdb
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\obj\Debug\WcfUserServiceLibrary.csprojResolveAssemblyReference.cache
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\obj\Debug\WcfUserServiceLibrary.dll
+D:\Epam\.Net Core\MasterSlaveProject\WcfUserServiceLibrary\obj\Debug\WcfUserServiceLibrary.pdb

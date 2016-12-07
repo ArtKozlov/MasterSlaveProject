@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ServiceLogic;
 using ServiceLogic.Interfaces;
+using ServiceLogic.UserEntity;
 
 namespace ServiceLogicTests
 {

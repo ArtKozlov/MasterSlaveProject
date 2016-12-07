@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ServiceLogic.UserEntity;
 
 namespace ServiceLogic.Interfaces
 {

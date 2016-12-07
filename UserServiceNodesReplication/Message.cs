@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ServiceLogic;
+using ServiceLogic.UserEntity;
 
 namespace UserServiceNodesReplication
 {

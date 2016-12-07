@@ -5,11 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLogic", "ServiceLogic\ServiceLogic.csproj", "{F33D9775-E1DC-49F8-894C-09FEEA875CFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfUserService", "WcfUserService\WcfUserService.csproj", "{155FD100-1F9A-4FE3-B2DC-9B403404698F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLogicTests", "ServiceLogicTests\ServiceLogicTests.csproj", "{65F6D52F-C66A-4976-9DBA-9BD26B0A429F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserServiceNodesReplication", "UserServiceNodesReplication\UserServiceNodesReplication.csproj", "{E5D6B8F1-0220-4FCE-9730-0C45D28AB53A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfUserServiceLibrary", "WcfUserServiceLibrary\WcfUserServiceLibrary.csproj", "{FEB0EAC2-D1A5-4B64-AB73-5E5DA6307180}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{F33D9775-E1DC-49F8-894C-09FEEA875CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F33D9775-E1DC-49F8-894C-09FEEA875CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F33D9775-E1DC-49F8-894C-09FEEA875CFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{155FD100-1F9A-4FE3-B2DC-9B403404698F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{155FD100-1F9A-4FE3-B2DC-9B403404698F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{155FD100-1F9A-4FE3-B2DC-9B403404698F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{155FD100-1F9A-4FE3-B2DC-9B403404698F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{65F6D52F-C66A-4976-9DBA-9BD26B0A429F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{65F6D52F-C66A-4976-9DBA-9BD26B0A429F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65F6D52F-C66A-4976-9DBA-9BD26B0A429F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{E5D6B8F1-0220-4FCE-9730-0C45D28AB53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5D6B8F1-0220-4FCE-9730-0C45D28AB53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5D6B8F1-0220-4FCE-9730-0C45D28AB53A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB0EAC2-D1A5-4B64-AB73-5E5DA6307180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB0EAC2-D1A5-4B64-AB73-5E5DA6307180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB0EAC2-D1A5-4B64-AB73-5E5DA6307180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB0EAC2-D1A5-4B64-AB73-5E5DA6307180}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ServiceLogic.Validation;
 using ServiceLogic.Interfaces;
+using ServiceLogic.UserEntity;
 
 namespace ServiceLogic
 {

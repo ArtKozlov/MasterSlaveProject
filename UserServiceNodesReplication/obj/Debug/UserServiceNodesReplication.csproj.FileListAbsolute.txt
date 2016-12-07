@@ -1,0 +1,7 @@
+D:\Epam\.Net Core\MasterSlaveProject\UserServiceNodesReplication\bin\Debug\UserServiceNodesReplication.dll
+D:\Epam\.Net Core\MasterSlaveProject\UserServiceNodesReplication\bin\Debug\UserServiceNodesReplication.pdb
+D:\Epam\.Net Core\MasterSlaveProject\UserServiceNodesReplication\bin\Debug\ServiceLogic.dll
+D:\Epam\.Net Core\MasterSlaveProject\UserServiceNodesReplication\bin\Debug\ServiceLogic.pdb
+D:\Epam\.Net Core\MasterSlaveProject\UserServiceNodesReplication\obj\Debug\UserServiceNodesReplication.csprojResolveAssemblyReference.cache
+D:\Epam\.Net Core\MasterSlaveProject\UserServiceNodesReplication\obj\Debug\UserServiceNodesReplication.dll
+D:\Epam\.Net Core\MasterSlaveProject\UserServiceNodesReplication\obj\Debug\UserServiceNodesReplication.pdb

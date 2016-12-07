@@ -4,6 +4,7 @@ using ServiceLogic.Interfaces;
 using System.Xml.Serialization;
 using System.IO;
 using System.Configuration;
+using ServiceLogic.UserEntity;
 
 namespace ServiceLogic
 {

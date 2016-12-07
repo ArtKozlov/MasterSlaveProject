@@ -2,6 +2,7 @@
 
 namespace ServiceLogic.UserEntity
 {
+    [Serializable]
     public struct Visa
     {
         public string Country { get; set; }

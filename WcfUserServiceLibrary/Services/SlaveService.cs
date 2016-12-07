@@ -41,7 +41,7 @@ namespace WcfUserServiceLibrary.Services
             AppDomain domain = AppDomain.CreateDomain($"Slave is listening the {port} port", null, appDomainSetup);
 
 
-            Slave slave = (Slave)domain.CreateInstanceAndUnwrap("MasterSlaveReplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", typeof(Slave).FullName, false, BindingFlags.Default, null, new object[] { port }, null, null);
+            var slave = (Slave)domain.CreateInstanceAndUnwrap("UserServiceNodesReplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", typeof(Slave).FullName, false, BindingFlags.Default, null, new object[] { port }, null, null);
             new Thread(() => slave.ListenMaster()).Start();
             slaves.Add(slave);
         }

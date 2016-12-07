@@ -13,7 +13,6 @@ namespace UserServiceNodesReplication
     {
         private readonly int _port;
         private readonly UserService _userService;
-
         public Slave(int port)
         {
             _port = port;
@@ -37,7 +36,6 @@ namespace UserServiceNodesReplication
         public void ListenMaster()
         {
             TcpListener server = null;
-            Message message = null;
             try
             {
                 IPAddress locAddr = IPAddress.Parse("127.0.0.1");
@@ -55,7 +53,7 @@ namespace UserServiceNodesReplication
 
                     using (NetworkStream stream = client.GetStream())
                     {
-                        message = (Message)formatter.Deserialize(stream);
+                        Message message = (Message)formatter.Deserialize(stream);
                         MakeAction(message);
                     }
                     
@@ -72,11 +70,14 @@ namespace UserServiceNodesReplication
             }
         }
 
-        private void Add(User user) => _userService.AddUser(user);
+        private void Add(User user)
+            => _userService.AddUser(user);
 
-        private void Update(User user) => _userService.UpdateUser(user);
+        private void Update(User user) 
+            => _userService.UpdateUser(user);
 
-        private void Delete(User user) => _userService.RemoveUser(user);
+        private void Delete(User user) 
+            => _userService.RemoveUser(user);
 
         private void MakeAction(Message message)
         {

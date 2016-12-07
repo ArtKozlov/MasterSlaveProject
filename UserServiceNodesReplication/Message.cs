@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ServiceLogic;
 using ServiceLogic.UserEntity;
 
 namespace UserServiceNodesReplication
@@ -19,6 +14,6 @@ namespace UserServiceNodesReplication
             User = user;
             Operation = operation;
         }
-
+        
     }
 }

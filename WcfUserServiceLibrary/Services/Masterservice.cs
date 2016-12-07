@@ -16,7 +16,7 @@ namespace WcfUserServiceLibrary.Services
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             ConfigurationSectionCollection sections = config.Sections;
-            PortConfigSection settings = (PortConfigSection)sections["PortSettings"];
+            PortConfigSection settings = (PortConfigSection)sections["portSettings"];
             int[] ports = settings.ServiceNodesItems.ToArray();
             SlaveService.Start(ports);
             master = new Master(ports);

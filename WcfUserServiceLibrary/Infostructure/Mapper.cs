@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ServiceLogic;
 using ServiceLogic.UserEntity;
@@ -16,6 +17,7 @@ namespace WcfUserServiceLibrary.Infostructure
                 FirstName = userDC.FirstName,
                 LastName = userDC.LastName,
                 DateBirth = userDC.DateOfBirth,
+                Age = DateTime.Now.Year - userDC.DateOfBirth.Year,
                 Gender = userDC.UserGender,
                 Visa = userDC.UserVisa.ToVisa().ToArray()
             };

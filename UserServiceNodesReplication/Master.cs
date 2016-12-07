@@ -31,7 +31,7 @@ namespace UserServiceNodesReplication
             _userService.AddUser(user);
 
             SendMessage(new Message(user, Operation.Add));
-            
+
         }
 
         public bool Update(User user)
@@ -49,23 +49,23 @@ namespace UserServiceNodesReplication
         public void Delete(User user)
         {
             _userService.RemoveUser(user);
-            
+
             SendMessage(new Message(user, Operation.Delete));
-            
+
         }
 
         public User GetUserById(int id) => _userService.GetUserById(id);
 
         public IEnumerable<User> SearchByName(User user)
-            => _userService.SearchUsers(u => u.FirstName == user.FirstName );
+            => _userService.SearchUsers(u => u.FirstName == user.FirstName);
 
         public IEnumerable<User> SearchByLastName(User user)
             => _userService.SearchUsers(u => u.LastName == user.LastName);
 
-        public IEnumerable<User> SearchByFirstAndLastName(User user) 
+        public IEnumerable<User> SearchByFirstAndLastName(User user)
             => _userService.SearchUsers(u => u.LastName == user.LastName && u.FirstName == user.FirstName);
 
-        public IEnumerable<User> GetUsers() 
+        public IEnumerable<User> GetUsers()
             => _userService.GetAllUsers();
 
         private void SendMessage(Message message)
@@ -74,6 +74,7 @@ namespace UserServiceNodesReplication
 
             for (int i = 0; i < _ports.Length; i++)
             {
+                
                 using (TcpClient client = new TcpClient("127.0.0.1", _ports[i]))
                 {
                     using (NetworkStream stream = client.GetStream())
@@ -83,5 +84,6 @@ namespace UserServiceNodesReplication
                 }
             }
         }
+
     }
 }

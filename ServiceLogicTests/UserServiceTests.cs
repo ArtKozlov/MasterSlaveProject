@@ -53,6 +53,18 @@ namespace ServiceLogicTests
             UserService userService = new UserService();
             userService.GetUserByPredicate(null);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void DeleteUser_GoodUser_ArgumentOutOfRange()
+        {
+            UserService userService = new UserService();
+            User firstUser = new User("Artyom", "Kozlov", new DateTime(2000, 09, 10), Gender.Male);
+            userService.AddUser(firstUser);
+            userService.RemoveUser(firstUser);
+            userService.GetUserById(1);
+        }
+
         #endregion
         #region Good behavior
         [TestMethod]
@@ -100,18 +112,29 @@ namespace ServiceLogicTests
             userService.AddUser(firstUser);
             userService.AddUser(secondUser);
             listOfUsers.Add(firstUser);
-            Assert.AreEqual(listOfUsers[0], userService.GetUserByPredicate(m => m.FirstName == "Artyom").ToList()[0]);
+            CollectionAssert.AreEqual(listOfUsers, userService.GetUserByPredicate(m => m.FirstName == "Artyom").ToList());
         }
 
+
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void DeleteUser_GoodUser_ArgumentOutOfRange()
+        public void DumpUser_GoodUser_GoodDumped()
         {
             UserService userService = new UserService();
             User firstUser = new User("Artyom", "Kozlov", new DateTime(2000, 09, 10), Gender.Male);
             userService.AddUser(firstUser);
-            userService.RemoveUser(firstUser);
-            userService.GetUserById(1);
+            userService.DumpToXml(null, null);
+        }
+
+        [TestMethod]
+        public void GetDumpUser_GoodUser_GetGoodDump()
+        {
+            UserService userService = new UserService();
+            List<User> listOfUsers = new List<User>();
+            User firstUser = new User("Artyom", "Kozlov", new DateTime(2000, 09, 10), Gender.Male);
+            userService.AddUser(firstUser);
+            userService.DumpToXml(null, null);
+            listOfUsers.Add(userService.GetUserById(1));
+            CollectionAssert.AreEqual(listOfUsers, userService.GetXmlDump().ToList());
         }
         #endregion
     }

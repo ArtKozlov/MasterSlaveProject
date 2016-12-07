@@ -8,3 +8,4 @@ D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\bin\Debug\ServiceLogic.pdb
 D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\obj\Debug\ServiceLogic.csprojResolveAssemblyReference.cache
 D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\obj\Debug\ServiceLogic.dll
 D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\obj\Debug\ServiceLogic.pdb
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\bin\Debug\ServiceLogic.dll.config

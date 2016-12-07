@@ -34,7 +34,7 @@ namespace ServiceLogic
 
         public User GetById(int id)
         {
-            return _userRepository.First(u => u.Id == id);
+            return _userRepository.FirstOrDefault(u => u.Id == id);
         }
 
         public IEnumerable<User> GetByPredicate(Func<User, bool> predicate)

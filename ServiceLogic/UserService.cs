@@ -40,7 +40,7 @@ namespace ServiceLogic
             if (ReferenceEquals(user, null))
                 throw new ArgumentNullException();
 
-            if (!Validator.IntIsValid(user))
+            if (!Validator.UserIsValid(user))
                 throw new InvalidUserException();
             try
             {

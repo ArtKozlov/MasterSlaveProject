@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ServiceLogic;
 using ServiceLogic.Interfaces;
@@ -92,12 +94,13 @@ namespace ServiceLogicTests
         public void GetUserByPredicate_GoodUsers_GoodBehavior()
         {
             UserService userService = new UserService();
+            List<User> listOfUsers = new List<User>();
             User firstUser = new User("Artyom", "Kozlov", new DateTime(2000, 09, 10), Gender.Female);
-            User secondUser = new User("Art", "Kozlov", new DateTime(2000, 09, 10), Gender.Female);
+            User secondUser = new User("Nikita", "Kozlov", new DateTime(2000, 09, 10), Gender.Female);
             userService.AddUser(firstUser);
             userService.AddUser(secondUser);
-            Assert.AreEqual(firstUser, userService.GetUserByPredicate(m => m.FirstName == "Artyom"));
-            Assert.AreEqual(secondUser, userService.GetUserByPredicate(m => m.FirstName == "Art"));
+            listOfUsers.Add(firstUser);
+            Assert.AreEqual(listOfUsers[0], userService.GetUserByPredicate(m => m.FirstName == "Artyom").ToList()[0]);
         }
 
         [TestMethod]
@@ -107,7 +110,6 @@ namespace ServiceLogicTests
             UserService userService = new UserService();
             User firstUser = new User("Artyom", "Kozlov", new DateTime(2000, 09, 10), Gender.Male);
             userService.AddUser(firstUser);
-            Assert.AreEqual(firstUser, userService.GetUserByPredicate(m => m.FirstName == "Artyom"));
             userService.RemoveUser(firstUser);
             userService.GetUserById(1);
         }

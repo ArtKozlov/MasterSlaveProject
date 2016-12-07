@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 using System.Reflection;
 
 namespace ServiceLogic.Validation
@@ -10,24 +10,33 @@ namespace ServiceLogic.Validation
 
             foreach (FieldInfo elem in typeof(User).GetFields())
             {
-                StringValidatorAttribute attr = (StringValidatorAttribute)elem.GetCustomAttribute(typeof(StringValidatorAttribute));
-                if (ReferenceEquals(attr, null))
+               
+                foreach(Attribute attr in elem.GetCustomAttributes(false))
                 {
-                    return false;
+                    var strAttr = attr as StringValidatorAttribute;
+
+                    if (!ReferenceEquals(strAttr, null))
+                    {
+                        if (elem.GetValue(user).ToString().Length >= strAttr.Length ||
+                            elem.GetValue(user).ToString().Length <= strAttr.MinLength)
+                            return false;
+                    }
                 }
-                if (elem.GetValue(user).ToString().Length >= attr.Length || elem.GetValue(user).ToString().Length <= attr.MinLength)
-                    return false;
 
             }
             foreach (PropertyInfo elem in typeof(User).GetProperties())
             {
-                StringValidatorAttribute attr = (StringValidatorAttribute)elem.GetCustomAttribute(typeof(StringValidatorAttribute));
-                if (ReferenceEquals(attr, null))
+                foreach (Attribute attr in elem.GetCustomAttributes(false))
                 {
-                    return false;
+                    var strAttr = attr as StringValidatorAttribute;
+
+                    if (!ReferenceEquals(strAttr, null))
+                    {
+                        if (elem.GetValue(user).ToString().Length >= strAttr.Length ||
+                            elem.GetValue(user).ToString().Length <= strAttr.MinLength)
+                            return false;
+                    }
                 }
-                if (elem.GetValue(user).ToString().Length >= attr.Length || elem.GetValue(user).ToString().Length <= attr.MinLength)
-                    return false;
 
             }
             return true;
@@ -38,24 +47,30 @@ namespace ServiceLogic.Validation
 
             foreach (FieldInfo elem in typeof(User).GetFields())
             {
-                IntValidatorAttribute attr = (IntValidatorAttribute)elem.GetCustomAttribute(typeof(IntValidatorAttribute));
-                if (ReferenceEquals(attr, null))
+                foreach (Attribute attr in elem.GetCustomAttributes(false))
                 {
-                    return true;
+                    var intAttr = attr as IntValidatorAttribute;
+
+                    if (!ReferenceEquals(intAttr, null))
+                    {
+                        if ((int)elem.GetValue(user) <= intAttr.Min || (int)elem.GetValue(user) >= intAttr.Max)
+                            return false;
+                    }
                 }
-                if ((int)elem.GetValue(user) <= attr.Min || (int)elem.GetValue(user) >= attr.Max)
-                    return false;
 
             }
             foreach (PropertyInfo elem in typeof(User).GetProperties())
             {
-                IntValidatorAttribute attr = (IntValidatorAttribute)elem.GetCustomAttribute(typeof(IntValidatorAttribute));
-                if (ReferenceEquals(attr, null))
+                foreach (Attribute attr in elem.GetCustomAttributes(false))
                 {
-                    return true;
+                    var intAttr = attr as IntValidatorAttribute;
+
+                    if (!ReferenceEquals(intAttr, null))
+                    {
+                        if ((int)elem.GetValue(user) <= intAttr.Min || (int)elem.GetValue(user) >= intAttr.Max)
+                            return false;
+                    }
                 }
-                if ((int)elem.GetValue(user) <= attr.Min || (int)elem.GetValue(user) >= attr.Max)
-                    return false;
 
             }
             return true;

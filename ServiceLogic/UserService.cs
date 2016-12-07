@@ -6,7 +6,7 @@ using ServiceLogic.Interfaces;
 
 namespace ServiceLogic
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly IRepository<User> _userRepository;
         private Func<int, int> increment;

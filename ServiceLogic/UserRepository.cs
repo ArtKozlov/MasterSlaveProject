@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace ServiceLogic
 {
+    [Serializable]
     public class UserRepository : IRepository<User>
     {
 
@@ -52,6 +54,8 @@ namespace ServiceLogic
             _userRepository.Remove(user);
         }
 
+
+
         public IEnumerable<User> SearchUsers(params Func<User, bool>[] predicates)
         {
             List<User> result = new List<User>();
@@ -60,13 +64,30 @@ namespace ServiceLogic
             return result;
         }
 
-        public bool UpdateUser(User user)
+        public bool Update(User user)
         {
             if (ReferenceEquals(user, null))
                 throw new ArgumentNullException();
-            return false;
-            // Need to implement comparer for updating User
+            User updatedUser = GetById(user.Id);
+            if (updatedUser == null)
+            {
+                return false;
+            }
 
+            updatedUser.FirstName = user.FirstName;
+            updatedUser.LastName = user.LastName;
+            updatedUser.DateBirth = user.DateBirth;
+            return true;
+        }
+
+        public IEnumerator<User> GetEnumerator()
+        {
+            return _userRepository.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

@@ -1,0 +1,10 @@
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\bin\Debug\ServiceLogicTests.dll
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\bin\Debug\ServiceLogicTests.pdb
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\bin\Debug\ServiceLogic.dll
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\bin\Debug\ServiceLogic.pdb
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\obj\Debug\ServiceLogicTests.csprojResolveAssemblyReference.cache
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\obj\Debug\ServiceLogicTests.dll
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogicTests\obj\Debug\ServiceLogicTests.pdb

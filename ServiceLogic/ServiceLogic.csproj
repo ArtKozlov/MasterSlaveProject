@@ -42,12 +42,17 @@
   <ItemGroup>
     <Compile Include="Interfaces\IDump.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="InvalidUserException.cs" />
     <Compile Include="Master.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Slave.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserService.cs" />
+    <Compile Include="Validation\IntValidatorAttribute.cs" />
+    <Compile Include="Validation\StringValidatorAttribute.cs" />
+    <Compile Include="Validation\Validator.cs" />
+    <Compile Include="Visa.cs" />
     <Compile Include="XmlDump.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

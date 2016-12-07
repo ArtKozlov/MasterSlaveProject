@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ServiceLogic.Interfaces
 {
-    public interface IRepository<User>
+    public interface IRepository<User> : IEnumerable<User>
     {
         User Add(User user);
         void Remove(User user);
         User GetById(int id);
         IEnumerable<User> GetByPredicate(Func<User, bool> predicate);
         IEnumerable<User> SearchUsers(params Func<User, bool>[] predicates);
-        bool UpdateUser(User user);
+        bool Update(User user);
         List<User> GetUsers();
     }
 }

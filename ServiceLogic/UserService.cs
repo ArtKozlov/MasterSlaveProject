@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ServiceLogic.Validation;
 using ServiceLogic.Interfaces;
 
 namespace ServiceLogic
@@ -10,23 +9,49 @@ namespace ServiceLogic
     public class UserService
     {
         private readonly IRepository<User> _userRepository;
+        private Func<int, int> increment;
 
-        public UserService()
+        public UserService() : this(new UserRepository(), s => ++s)
         {
-            _userRepository = new UserRepository();
         }
 
-        public UserService(IRepository<User> userRepository)
+        public UserService(IRepository<User> repository) : this(repository, s => ++s)
         {
-            _userRepository = userRepository;
         }
 
+        public UserService(Func<int, int> fun) : this(new UserRepository(), fun)
+        {
+        }
+
+        public UserService(IRepository<User> repository, Func<int, int> inc)
+        {
+            _userRepository = repository;
+            increment = inc;
+
+            foreach (var item in _userRepository)
+            {               
+                item.Id = _userRepository.Last().Id == 0 ? increment(0) : increment(_userRepository.Last().Id);
+            }
+            
+        }
 
         public User AddUser(User user)
         {
             if (ReferenceEquals(user, null))
                 throw new ArgumentNullException();
+
+            if (!Validator.IntIsValid(user))
+                throw new InvalidUserException();
+            try
+            {
+                user.Id = _userRepository.Last().Id == 0 ? increment(0) : increment(_userRepository.Last().Id);
+            }
+            catch(Exception)
+            {
+                user.Id = 1;
+            }
             return _userRepository.Add(user);
+
         }
 
         public void RemoveUser(User user)
@@ -38,8 +63,6 @@ namespace ServiceLogic
 
         public User GetUserById(int id)
         {
-            if (ReferenceEquals(id, null))
-                throw new ArgumentNullException();
             if (_userRepository.GetById(id) == null)
                 throw new ArgumentOutOfRangeException();
             return _userRepository.GetById(id);
@@ -62,7 +85,7 @@ namespace ServiceLogic
         {
             if (ReferenceEquals(user, null))
                 throw new ArgumentNullException();
-            return _userRepository.UpdateUser(user);
+            return _userRepository.Update(user);
         }
         public IEnumerable<User> GetAllUsers()
         {

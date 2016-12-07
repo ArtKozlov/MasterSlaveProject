@@ -1,0 +1,10 @@
+C:\Users\Artsiom_Kazlou1\Documents\Visual Studio 2015\Projects\MasterSlaveProject\ServiceLogic\obj\Debug\ServiceLogic.csprojResolveAssemblyReference.cache
+C:\Users\Artsiom_Kazlou1\Documents\Visual Studio 2015\Projects\MasterSlaveProject\ServiceLogic\bin\Debug\ServiceLogic.dll
+C:\Users\Artsiom_Kazlou1\Documents\Visual Studio 2015\Projects\MasterSlaveProject\ServiceLogic\bin\Debug\ServiceLogic.pdb
+C:\Users\Artsiom_Kazlou1\Documents\Visual Studio 2015\Projects\MasterSlaveProject\ServiceLogic\obj\Debug\ServiceLogic.dll
+C:\Users\Artsiom_Kazlou1\Documents\Visual Studio 2015\Projects\MasterSlaveProject\ServiceLogic\obj\Debug\ServiceLogic.pdb
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\bin\Debug\ServiceLogic.dll
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\bin\Debug\ServiceLogic.pdb
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\obj\Debug\ServiceLogic.csprojResolveAssemblyReference.cache
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\obj\Debug\ServiceLogic.dll
+D:\Epam\.Net Core\MasterSlaveProject\ServiceLogic\obj\Debug\ServiceLogic.pdb

@@ -12,10 +12,5 @@ namespace MastersSlaveProvider
         {
 
         }
-
-        //public User AddUser()
-        //{
-        //    return new User;
-        //}
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ServiceLogic.CustomExceptions;
+using ServiceLogic.DumpToXml;
 using ServiceLogic.Validation;
 using ServiceLogic.Interfaces;
 using ServiceLogic.UserEntity;

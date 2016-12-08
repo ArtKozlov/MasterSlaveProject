@@ -21,15 +21,15 @@ namespace WcfUserServiceLibrary.Services
             slaves = new List<Slave>();
         }
 
-        public static void Start(int[] ports)
+        public static void Start(List<int> ports, List<string> ips)
         {
-            for (int i = 0; i < ports.Length; i++)
+            for(int i = 0; i < ports.Count; i++)
             {
-                CreateSlave(ports[i]);
+                CreateSlave(ports[i], ips[i]);
             }
         }
 
-        private static void CreateSlave(int port)
+        private static void CreateSlave(int port, string ip)
         {
 
             AppDomainSetup appDomainSetup = new AppDomainSetup
@@ -38,10 +38,13 @@ namespace WcfUserServiceLibrary.Services
                 PrivateBinPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Slave")
             };
 
-            AppDomain domain = AppDomain.CreateDomain($"Slave is listening the {port} port", null, appDomainSetup);
+            AppDomain domain = AppDomain.CreateDomain
+                ($"Slave is listening the {port} port on {ip} address", null, appDomainSetup);
 
 
-            var slave = (Slave)domain.CreateInstanceAndUnwrap("UserServiceNodesReplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", typeof(Slave).FullName, false, BindingFlags.Default, null, new object[] { port }, null, null);
+            var slave = (Slave)domain.CreateInstanceAndUnwrap
+                ("UserServiceNodesReplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                typeof(Slave).FullName, false, BindingFlags.Default, null, new object[] { port, ip }, null, null);
             new Thread(() => slave.ListenMaster()).Start();
             slaves.Add(slave);
         }

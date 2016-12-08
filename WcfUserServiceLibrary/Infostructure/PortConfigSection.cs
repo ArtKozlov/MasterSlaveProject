@@ -1,71 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Configuration;
-using System.Linq;
-using System.Web;
 
 namespace WcfUserServiceLibrary.Infostructure
 {
     
     public class PortConfigSection : ConfigurationSection
     {
-        [ConfigurationProperty("serviceNodes")]
+        [ConfigurationProperty("ports")]
         public PortsCollection ServiceNodesItems
         {
-            get { return (PortsCollection)base["serviceNodes"]; }
+            get { return (PortsCollection)base["ports"]; }
         }
     }
 
-    [ConfigurationCollection(typeof(ServiceNode))]
+    [ConfigurationCollection(typeof(ServicePort))]
     public class PortsCollection : ConfigurationElementCollection
     {
         protected override ConfigurationElement CreateNewElement()
         {
-            return new ServiceNode();
+            return new ServicePort();
         }
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((ServiceNode)element).Port;
+            return ((ServicePort)element).Port;
         }
 
-        public ServiceNode this[int indx]
+        public ServicePort this[int indx]
         {
-            get { return (ServiceNode)BaseGet(indx); }
+            get { return (ServicePort)BaseGet(indx); }
         }
     }
 
-    public class ServiceNode : ConfigurationElement
-    {
-        [ConfigurationProperty("nodeType", DefaultValue = "Slave", IsKey = false, IsRequired = true)]
-        public string NodeType
-        {
-            get { return (string)base["nodeType"]; }
-            set { base["nodeType"] = value; }
-        }
-
+    public class ServicePort : ConfigurationElement
+    {      
         [ConfigurationProperty("port", DefaultValue = 0, IsKey = true, IsRequired = true)]
         public int Port
         {
             get { return (int)base["port"]; }
             set { base["port"] = value; }
         }
-    }
 
-    /// <summary>
-    /// Class which convert PortsCollection to int[]
-    /// </summary>
-    public static class Converter
-    {
-        public static int[] ToArray(this PortsCollection ports)
+        [ConfigurationProperty("ip", DefaultValue = "", IsKey = true, IsRequired = true)]
+        public string Ip
         {
-            var resultArr = new int[ports.Count];
-            for (int i = 0; i < ports.Count; i++)
-            {
-                resultArr[i] = ports[i].Port;
-            }
-
-            return resultArr;
+            get { return (string)base["ip"]; }
+            set { base["ip"] = value; }
         }
     }
 

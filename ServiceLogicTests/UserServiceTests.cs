@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ServiceLogic;
+using ServiceLogic.CustomExceptions;
 using ServiceLogic.Interfaces;
 using ServiceLogic.UserEntity;
 

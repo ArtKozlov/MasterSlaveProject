@@ -17,9 +17,15 @@ namespace WcfUserServiceLibrary.Services
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             ConfigurationSectionCollection sections = config.Sections;
             PortConfigSection settings = (PortConfigSection)sections["portSettings"];
-            int[] ports = settings.ServiceNodesItems.ToArray();
-            SlaveService.Start(ports);
-            master = new Master(ports);
+            List<int> ports = new List<int>();
+            List<string> ips = new List<string>();
+            for (int i = 0; i < settings.ServiceNodesItems.Count; i++)
+            {
+                ips.Add(settings.ServiceNodesItems[i].Ip);
+                ports.Add(settings.ServiceNodesItems[i].Port);
+            }
+            SlaveService.Start(ports, ips);
+            master = new Master(ports, ips);
         }
 
         public void Add(UserDataContract userDC) => master.Add(userDC.ToUser());

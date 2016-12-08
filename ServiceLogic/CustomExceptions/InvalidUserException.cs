@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ServiceLogic
+namespace ServiceLogic.CustomExceptions
 {
     public class InvalidUserException : Exception
     {

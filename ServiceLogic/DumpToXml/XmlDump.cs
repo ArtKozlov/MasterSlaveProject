@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using ServiceLogic.Interfaces;
-using System.Xml.Serialization;
-using System.IO;
 using System.Configuration;
+using System.IO;
+using System.Xml.Serialization;
+using ServiceLogic.Interfaces;
 using ServiceLogic.UserEntity;
 
-namespace ServiceLogic
+namespace ServiceLogic.DumpToXml
 {
-    public class XmlDump : ConfigurationSection, IDump
+    public class XmlDump : IDump
     {
         private string FilePath { get; }
 
 
         public XmlDump()
         {
-            // FilePath = ConfigurationManager.AppSettings["FilePath"];
-            FilePath = @"C:\Users\Default\Documents\dump.xml";
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            ConfigurationSectionCollection sections = config.Sections;
+            DumpConfigSection settings = (DumpConfigSection)sections["dumpSettings"];
+            string path = settings.GetPathItems[0].Path;
+            FilePath = path;
         }
         public IEnumerable<User> GetDump()
         {

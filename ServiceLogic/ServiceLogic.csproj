@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DumpToXml\DumpConfigSection.cs" />
     <Compile Include="Interfaces\IDump.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="CustomExceptions\InvalidUserException.cs" />
@@ -58,7 +59,7 @@
     <Compile Include="Validation\StringValidatorAttribute.cs" />
     <Compile Include="Validation\Validator.cs" />
     <Compile Include="UserEntity\Visa.cs" />
-    <Compile Include="XmlDump.cs" />
+    <Compile Include="DumpToXml\XmlDump.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

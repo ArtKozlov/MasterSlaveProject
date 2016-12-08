@@ -18,10 +18,12 @@ namespace UserServiceNodesReplication
     public class Master
     {
         private readonly UserService _userService;
-        private readonly int[] _ports;
+        private readonly List<int> _ports;
+        private readonly List<string> _ips;
 
-        public Master(int[] ports)
+        public Master(List<int> ports, List<string> ips)
         {
+            _ips = ips;
             _ports = ports;
             _userService = new UserService();
         }
@@ -72,10 +74,10 @@ namespace UserServiceNodesReplication
         {
             BinaryFormatter formatter = new BinaryFormatter();
 
-            for (int i = 0; i < _ports.Length; i++)
+            for(int i = 0; i < _ports.Count; i++)
             {
                 
-                using (TcpClient client = new TcpClient("127.0.0.1", _ports[i]))
+                using (TcpClient client = new TcpClient(_ips[i], _ports[i]))
                 {
                     using (NetworkStream stream = client.GetStream())
                     {

@@ -12,9 +12,11 @@ namespace UserServiceNodesReplication
     public class Slave : MarshalByRefObject
     {
         private readonly int _port;
+        private readonly string _ip;
         private readonly UserService _userService;
-        public Slave(int port)
+        public Slave(int port, string ip)
         {
+            _ip = ip;
             _port = port;
             _userService = new UserService();
         }
@@ -38,7 +40,7 @@ namespace UserServiceNodesReplication
             TcpListener server = null;
             try
             {
-                IPAddress locAddr = IPAddress.Parse("127.0.0.1");
+                IPAddress locAddr = IPAddress.Parse(_ip);
 
                 server = new TcpListener(locAddr, _port);
                 
@@ -67,6 +69,7 @@ namespace UserServiceNodesReplication
             finally
             {
                 server.Stop();
+                
             }
         }
 
